@@ -31,7 +31,6 @@ public class mujeres extends AppCompatActivity {
         Intent intent=getIntent();
         txtNombre.setText(intent.getStringExtra("Nombre"));
         ///////////////////////////////////////////////////////////////////
-/
         Integer q = imagenesID[generador.nextInt(imagenesID.length)];
         final ImageView iv = (ImageView) findViewById(R.id.image);
 

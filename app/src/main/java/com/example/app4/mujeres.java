@@ -6,9 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class mujeres extends AppCompatActivity {
+
+    Random generador = new Random();
+    Integer[] imagenesID=
+            {R.drawable.sm1, R.drawable.sm2, R.drawable.sm3, R.drawable.sm4, R.drawable.sm5};
 
     TextView txtNombre;
     Button btnsuperacion, btnReflexion;
@@ -20,10 +27,23 @@ public class mujeres extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombre);
         btnsuperacion = findViewById(R.id.btnsuperacion);
         btnReflexion = findViewById(R.id.btnReflexion);
-
-
+        //Completed
         Intent intent=getIntent();
         txtNombre.setText(intent.getStringExtra("Nombre"));
+        ///////////////////////////////////////////////////////////////////
+
+        Integer q = imagenesID[generador.nextInt(imagenesID.length)];
+        final ImageView iv = (ImageView) findViewById(R.id.image);
+
+        View nextButton = findViewById(R.id.btnsuperacion);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int resources =
+                        imagenesID[generador.nextInt(imagenesID.length)];
+                iv.setImageResource(resources);
+            }
+        });
 
     }
 
@@ -31,16 +51,6 @@ public class mujeres extends AppCompatActivity {
     public void volverMain(View view) {
         Intent volver = new Intent(this, MainActivity.class);
         startActivity(volver);
-    }
-
-    public void reflexion(View view) {
-        Intent reflexion = new Intent(this, reflexionmujeres.class);
-        startActivity(reflexion);
-    }
-
-    public void superacion(View view) {
-        Intent superacion = new Intent(this, superacionmujeres.class);
-        startActivity(superacion);
     }
 
     public void volver(View view) {

@@ -16,6 +16,8 @@ public class mujeres extends AppCompatActivity {
     Random generador = new Random();
     Integer[] imagenesID=
             {R.drawable.sm1, R.drawable.sm2, R.drawable.sm3, R.drawable.sm4, R.drawable.sm5};
+    Integer[] imagenesID2=
+            {R.drawable.rm1, R.drawable.rm2, R.drawable.rm3, R.drawable.rm4, R.drawable.rm5};
 
     TextView txtNombre;
     Button btnsuperacion, btnReflexion;
@@ -41,6 +43,16 @@ public class mujeres extends AppCompatActivity {
                 int resources =
                         imagenesID[generador.nextInt(imagenesID.length)];
                 iv.setImageResource(resources);
+            }
+        });
+
+        View nextButton2 = findViewById(R.id.btnReflexion);
+        nextButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int resources2 =
+                        imagenesID2[generador.nextInt(imagenesID2.length)];
+                iv.setImageResource(resources2);
             }
         });
 

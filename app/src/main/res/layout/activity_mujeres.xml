@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mujeres">
+
+    <TextView
+        android:id="@+id/textVi"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Mi nombre es: "
+        android:textColor="#f6a"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="230dp"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/btnsuperacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="200dp"
+        android:onClick="superacion"
+        android:text="superacion" />
+
+    <Button
+        android:id="@+id/btnReflexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reflexion"
+        android:onClick="reflexion"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="200dp" />
+
+    <Button
+        android:id="@+id/btnvolverM"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="100dp"
+        android:onClick="volverMain"
+        android:text="Volver al principio"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:onClick="volver"
+        app:srcCompat="@drawable/izquierda" />
+
+</FrameLayout>

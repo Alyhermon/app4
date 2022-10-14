@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista2">
+
+    <EditText
+        android:id="@+id/edtnombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su Nombre"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="110dp"/>
+
+
+    <RadioGroup
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="130dp">
+
+        <RadioButton
+            android:id="@+id/rbfemen"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Femenino" />
+
+
+        <RadioButton
+            android:id="@+id/rbmasc"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Masculino" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnaceptar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="100dp"
+        android:text="Aceptar"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:onClick="volverMain"
+        app:srcCompat="@drawable/izquierda" />
+
+</FrameLayout>

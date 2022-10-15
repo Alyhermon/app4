@@ -3,12 +3,20 @@ package com.example.app4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.Random;
 
 public class mujeres extends AppCompatActivity {
@@ -20,7 +28,10 @@ public class mujeres extends AppCompatActivity {
             {R.drawable.rm1, R.drawable.rm2, R.drawable.rm3, R.drawable.rm4, R.drawable.rm5};
 
     TextView txtNombre;
-    Button btnsuperacion, btnReflexion;
+    ImageView imagen;
+    Button btnsuperacion, btnReflexion, btncompartir;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +40,14 @@ public class mujeres extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombre);
         btnsuperacion = findViewById(R.id.btnsuperacion);
         btnReflexion = findViewById(R.id.btnReflexion);
+        btncompartir = findViewById(R.id.btnCompartir);
+        imagen = findViewById(R.id.image);
         //Completed
         Intent intent=getIntent();
         txtNombre.setText(intent.getStringExtra("Nombre"));
         ///////////////////////////////////////////////////////////////////
         Integer q = imagenesID[generador.nextInt(imagenesID.length)];
+
         final ImageView iv = (ImageView) findViewById(R.id.image);
 
         View nextButton = findViewById(R.id.btnsuperacion);
@@ -56,6 +70,14 @@ public class mujeres extends AppCompatActivity {
             }
         });
 
+        //Boton para compartir las imagenes
+        btncompartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                share();
+            }
+        });
+
     }
 
     //Boton de Volver al principio
@@ -67,5 +89,19 @@ public class mujeres extends AppCompatActivity {
     public void volver(View view) {
         Intent intent = new Intent(this, vista2.class);
         startActivity(intent);
+    }
+
+    public void share(){
+        int rrr = imagenesID[generador.nextInt(imagenesID.length)];
+       Bitmap b = BitmapFactory.decodeResource(getResources(), rrr);
+       Intent share = new Intent(Intent.ACTION_SEND);
+       share.setType("image/jpeg");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), b,"Title", null);
+        Uri imageUri = Uri.parse(path);
+
+        share.putExtra(Intent.EXTRA_STREAM, imageUri);
+        startActivity(Intent.createChooser(share, "select"));
     }
 }

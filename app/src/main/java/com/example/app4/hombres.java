@@ -3,12 +3,17 @@ package com.example.app4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Random;
 
 public class hombres extends AppCompatActivity {
@@ -18,9 +23,12 @@ public class hombres extends AppCompatActivity {
             {R.drawable.sm1, R.drawable.sm2, R.drawable.sm3, R.drawable.sm4, R.drawable.sm5};
     Integer[] imagenesID2=
             {R.drawable.rm1, R.drawable.rm2, R.drawable.rm3, R.drawable.rm4, R.drawable.rm5};
+    int resources = imagenesID[generador.nextInt(imagenesID.length)];
+
+
 
     TextView txtNombre;
-    Button btnsuperacion, btnReflexion;
+    Button btnsuperacion, btnReflexion, btncompartir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +37,11 @@ public class hombres extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombre);
         btnsuperacion = findViewById(R.id.btnsuperacion);
         btnReflexion = findViewById(R.id.btnReflexion);
+        btncompartir = findViewById(R.id.btnCompartir);
         //Completed
         Intent intent=getIntent();
-        txtNombre.setText(intent.getStringExtra("Nombre"));
+        txtNombre.setText(intent.getStringExtra("Nombre1"));
+
         ///////////////////////////////////////////////////////////////////
         Integer q = imagenesID[generador.nextInt(imagenesID.length)];
         final ImageView iv = (ImageView) findViewById(R.id.image);
@@ -40,8 +50,7 @@ public class hombres extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int resources =
-                        imagenesID[generador.nextInt(imagenesID.length)];
+                resources = imagenesID[generador.nextInt(imagenesID.length)];
                 iv.setImageResource(resources);
             }
         });
@@ -56,6 +65,13 @@ public class hombres extends AppCompatActivity {
             }
         });
 
+        btncompartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                share();
+            }
+        });
+
     }
 
     //Boton de Volver al principio
@@ -67,5 +83,17 @@ public class hombres extends AppCompatActivity {
     public void volver(View view) {
         Intent intent = new Intent(this, vista2.class);
         startActivity(intent);
+    }
+
+    public void share(){
+        Intent share = new Intent(Intent.ACTION_SEND);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), resources);
+        share.setType("image/jpeg");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), b, "Superacion", null);
+        Uri imageUri =  Uri.parse(path);
+        share.putExtra(Intent.EXTRA_STREAM, imageUri);
+        startActivity(Intent.createChooser(share, "Select"));
     }
 }

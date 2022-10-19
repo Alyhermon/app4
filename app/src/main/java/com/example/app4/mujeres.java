@@ -26,6 +26,7 @@ public class mujeres extends AppCompatActivity {
             {R.drawable.sm1, R.drawable.sm2, R.drawable.sm3, R.drawable.sm4, R.drawable.sm5};
     Integer[] imagenesID2=
             {R.drawable.rm1, R.drawable.rm2, R.drawable.rm3, R.drawable.rm4, R.drawable.rm5};
+    int resources = imagenesID[generador.nextInt(imagenesID.length)];
 
     TextView txtNombre;
     ImageView imagen;
@@ -54,8 +55,7 @@ public class mujeres extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int resources =
-                        imagenesID[generador.nextInt(imagenesID.length)];
+                resources = imagenesID[generador.nextInt(imagenesID.length)];
                 iv.setImageResource(resources);
             }
         });
@@ -93,7 +93,7 @@ public class mujeres extends AppCompatActivity {
     }
     public void share(){
         Intent share = new Intent(Intent.ACTION_SEND);
-        Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.rm2);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), resources);
         share.setType("image/jpeg");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);

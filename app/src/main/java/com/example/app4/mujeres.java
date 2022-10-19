@@ -70,13 +70,14 @@ public class mujeres extends AppCompatActivity {
             }
         });
 
-        //Boton para compartir las imagenes
         btncompartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                share();
+               share();
             }
         });
+
+        //Boton para compartir las imagenes
 
     }
 
@@ -90,18 +91,16 @@ public class mujeres extends AppCompatActivity {
         Intent intent = new Intent(this, vista2.class);
         startActivity(intent);
     }
-
     public void share(){
-        int rrr = imagenesID[generador.nextInt(imagenesID.length)];
-       Bitmap b = BitmapFactory.decodeResource(getResources(), rrr);
-       Intent share = new Intent(Intent.ACTION_SEND);
-       share.setType("image/jpeg");
+        Intent share = new Intent(Intent.ACTION_SEND);
+        Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.rm2);
+        share.setType("image/jpeg");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(getContentResolver(), b,"Title", null);
-        Uri imageUri = Uri.parse(path);
-
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), b, "Superacion", null);
+        Uri imageUri =  Uri.parse(path);
         share.putExtra(Intent.EXTRA_STREAM, imageUri);
-        startActivity(Intent.createChooser(share, "select"));
+        startActivity(Intent.createChooser(share, "Select"));
     }
+
 }

@@ -8,11 +8,11 @@
 
     <TextView
         android:id="@+id/textVi"
-        android:layout_width="200dp"
+        android:layout_width="160dp"
         android:layout_height="40dp"
-        android:text="Mi nombre es: "
+        android:text="Bienvenida "
         android:textColor="#f6a"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="100dp"
         android:textSize="30dp"/>
 
@@ -25,29 +25,49 @@
         android:layout_marginLeft="230dp"
         android:textSize="30dp"/>
 
-    <Button
-        android:id="@+id/btnsuperacion"
+    <TextView
+        android:id="@+id/txtmujeres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Seccion de Mujeres"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="200dp"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/btnsuperacion"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="150dp"
         android:onClick="superacion"
-        android:text="superacion" />
+        android:text="Imagen superacion"/>
+
+    <ImageButton
+        android:id="@+id/btnCompartirReflexion"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="c"
+        android:onClick="compartirRef"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="340dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/compartir_ref"/>
 
     <Button
         android:id="@+id/btnReflexion"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:text="Reflexion"
+        android:text="Texto Reflexion"
         android:onClick="reflexion"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:layout_marginLeft="200dp" />
 
     <Button
         android:id="@+id/btnvolverM"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="210dp"
         android:layout_marginLeft="100dp"
         android:onClick="volverMain"
         android:text="Volver al principio"/>
@@ -59,5 +79,40 @@
         android:backgroundTint="@color/white"
         android:onClick="volver"
         app:srcCompat="@drawable/izquierda" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginLeft="30dp"/>
+
+    <ImageButton
+        android:id="@+id/btnCompartirSuperacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compartir Imagen"
+        android:layout_marginTop="600dp"
+        android:layout_marginLeft="40dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/compartir_sup"/>
+
+    <TextView
+        android:id="@+id/txtReflexion"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="290dp"
+        android:text="" />
+
+    <ImageButton
+        android:id="@+id/btnSalir2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="340dp"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/boton_salir" />
+
 
 </FrameLayout>

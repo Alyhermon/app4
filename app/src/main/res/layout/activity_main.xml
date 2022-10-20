@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo1"
     tools:context=".MainActivity">
 
     <Button
@@ -11,21 +12,21 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="300dp"
         android:backgroundTint="#ffc0cb"
         android:onClick="siguiente"
         android:textColor="@color/black"
-        android:text="Siguiente..." />
+        android:text="Siguiente" />
 
     <Button
         android:id="@+id/btnsalir"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:layout_marginLeft="100dp"
         android:onClick="salir"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/black"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
         android:text="Salir"/>
 
 </FrameLayout>

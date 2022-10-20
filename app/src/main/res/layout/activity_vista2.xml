@@ -52,4 +52,13 @@
         android:onClick="volverMain"
         app:srcCompat="@drawable/izquierda" />
 
+    <ImageButton
+        android:id="@+id/btnSalir2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/salir"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="100dp"/>
+
 </FrameLayout>

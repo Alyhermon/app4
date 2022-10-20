@@ -107,7 +107,4 @@ public class vista2 extends AppCompatActivity {
         return retorno;
     }
 
-    public void Salir2(View view) {
-
-    }
 }
